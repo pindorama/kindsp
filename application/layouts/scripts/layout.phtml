@@ -1,0 +1,13 @@
+<?php echo $this->render('_header.phtml') ?>
+    
+<div  class="content">
+    <!--
+    Zend layout is going to render the dynamic content from the controller
+    and the viewer inside of layout instances content variable = layout()->content
+    -->
+    
+    <?php echo $this->layout()->content; ?>
+    
+</div>
+
+<?php  echo $this->render('_footer.phtml') ?>

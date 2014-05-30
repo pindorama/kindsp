@@ -1,13 +1,41 @@
 <?php echo $this->render('_header.phtml') ?>
-    
+
 <div  class="content">
     <!--
     Zend layout is going to render the dynamic content from the controller
     and the viewer inside of layout instances content variable = layout()->content
     -->
-    
-    <?php echo $this->layout()->content; ?>
-    
+
+    <?php //echo $this->layout()->content; ?>
+
+    <?php
+    $request = Zend_Controller_Front::getInstance()->getRequest();
+    ?>            	
+    <dl>
+        <dt>Modul</dt>
+        <dd><?php echo $request->getModuleName(); ?></dd>
+        <dt>Controller</dt>
+        <dd><?php echo $request->getControllerName(); ?></dd>
+        <dt>Aktion</dt>
+        <dd><?php echo $request->getActionName(); ?></dd>
+        <?php
+        $params = $request->getParams();
+        foreach ($params as $key => $value) {
+            switch ($key) {
+                case 'module':
+                case 'controller':
+                case 'action':
+                    continue;
+                default:
+                    ?>
+                    <dt><?php echo $key; ?></dt>
+                    <dd><?php echo $value; ?></dd>
+                <?php
+            }
+        }
+        ?>
+    </dl>
+
 </div>
 
-<?php  echo $this->render('_footer.phtml') ?>
+<?php echo $this->render('_footer.phtml') ?>

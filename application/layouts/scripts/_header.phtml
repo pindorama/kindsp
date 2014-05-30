@@ -6,38 +6,13 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Favicon -->
-
         <link rel="shortcut icon" href="/img/favicon.ico">
         <?php echo $this->headMeta() ?>
-        <?php echo $this->headTitle() ?>
-        <?php 
-        
-     
-       // echo  $this->jQuery(); 
-        
+        <?php echo $this->headTitle() ?><br>
+          <?php echo $this->headScript()?><br>
+        <?php echo $this->headLink()?>
     
-     
-        ?>
-        <?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery.js') ?>
-        <?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery-2.1.0.min.js') ?>
-        
-        <?php $this->headScript()->appendFile($this->baseUrl() . '/js/bootstrap.js') ?>
-        <?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery-ui.js') ?>
-        <?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery-ui-1.10.2.custom.js') ?>
-        <?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery.maskedinput.js') ?>
-        <?php $this->headScript()->appendFile($this->baseUrl() . '/js/html5shiv.js', 'text/javascript', array('conditional' => 'lt IE 9')) ?>
 
-        <?php echo $this->headScript() ?>
-
-        <?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/jquery-ui.css', 'screen') ?>
-        <?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/style.css', 'screen') ?>
-        <?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/bootstrap.css', 'screen') ?>
-        <?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/font-awesome.css', 'screen') ?>
-        <?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/font-awesome-ie7.min.css', 'screen', 'IE 7') ?>
-        <?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/global.css', 'screen') ?>
-        <?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/bootstrap-responsive.css', 'screen') ?>
-
-<?php echo $this->headLink() ?>
     </head>
     <body>
         

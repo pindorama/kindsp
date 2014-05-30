@@ -1,4 +1,7 @@
 <?php
+/**
+ * Define all variable Path
+ */
 
 // Define path to application directory
 defined('APPLICATION_PATH')

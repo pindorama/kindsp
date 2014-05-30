@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <nav>
+        <logout>
+            <label>Logout</label>
+            <module>default</module>
+            <controller>authentication</controller>
+            <action>logout</action>
+            <resource>default:authentication</resource>
+            <privilege>logout</privilege>
+        </logout>
+        
+        <login>
+            <label>Login</label>
+            <module>default</module>
+            <controller>authentication</controller>
+            <action>login</action>
+            <resource>default:authentication</resource>
+             <privilege>login</privilege>
+        </login>
+        
+        <books>
+            <label>Playgrounds</label>
+            <uri>#</uri>
+            <resource>Playground:playgrounds</resource>
+             <privilege>index</privilege>
+            <pages>
+                <list>
+                    <label>List</label>
+                    <module>Playground</module>
+                    <controller>playgrounds</controller>
+                    <action>list</action>  
+                </list>
+            </pages>
+        </books>
+        
+        <book>
+            <label>Playground</label>
+             <uri>#</uri>
+             <resource>admin:playground</resource>
+              <privilege>index</privilege>
+             <pages>
+                 <add>
+                     <label>Add</label>
+                     <module>admin</module>
+                     <controller>playground</controller>
+                     <action>add</action>
+                 </add>
+                 <edit>
+                     <label>Edit</label>
+                     <module>admin</module>
+                     <controller>playground</controller>
+                     <action>edit</action>
+                 </edit>
+                 <delete>
+                     <label>admin</label>
+                     <module>admin</module>
+                     <controller>playground</controller>
+                     <action>edit</action>
+                 </delete>
+             </pages>
+        </book>
+    </nav>
+</config>

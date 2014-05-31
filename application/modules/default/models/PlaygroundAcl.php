@@ -34,10 +34,11 @@ class Model_PlaygroundAcl extends Zend_Acl {
         //allow 'guest' loowest privileges to the top, we allowed guest to do login on the authentication
         //role = guests, module = default, controller= authentication, what it is trying to do with the action= login
         $this->allow('guests', 'default:authentication', 'login');
+        $this->allow('guests', 'default:index', 'index');
         //show the errors
         // $this->allow('guests','default:error','error');
         //you dont users login twice
-
+        $this->allow('guests', 'default:authentication', 'checklogin');
         //$this->allow('guests', 'default:authentication', 'login');
         $this->allow('guests', 'default:error', 'error');
 
@@ -51,4 +52,3 @@ class Model_PlaygroundAcl extends Zend_Acl {
     }
 
 }
-

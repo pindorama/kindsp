@@ -9,6 +9,7 @@ class Default_AuthenticationController extends Zend_Controller_Action
 
     public function init()
     {
+        
         $this->view->documentClasses = array('default', 'authentication');
         $this->_statusMessenger = $this->_helper->flashMessenger;
         $this->_errorMessenger = new Zend_Controller_Action_Helper_FlashMessenger();
@@ -32,12 +33,12 @@ class Default_AuthenticationController extends Zend_Controller_Action
             $this->_statusMessenger->addMessage('Sie sind eingeloggt.');
             $this->_redirect('/default');
         }
-        $this->view->form = $this->_getLoginForm();
+       // $this->view->form = $this->_getLoginForm();
         $this->view->errorMessages = $this->_errorMessenger->getMessages();
     }
     
     
-    public function checkLoginAction() {
+    public function checkloginAction() {
         
           	// Zurueck zu index, falls kein POST-Request
     	// hereinkommt
@@ -49,7 +50,7 @@ class Default_AuthenticationController extends Zend_Controller_Action
 
         // falls das Formular falsch ausgefuellt ist, zurueck!
     if (!$this->_form->isValid($this->_request->getPost())) {
-        	$this->view->form = $form;
+        	$this->view->form = $this->_form;
         	return $this->render('login');
         }
         
@@ -70,9 +71,18 @@ class Default_AuthenticationController extends Zend_Controller_Action
        	    $this->_errorMessenger->addMessage('Falsche Benutzerdaten.');
         	return $this->_helper->redirector('login');
         }
+        else
+        {
+                $identity = $authAdapter->getResultRowObject();
+                    //we need some kind of persistent storage
+                    //we get from zend_Auth::getInstance
+             
+                    $authStorage = $auth->getStorage();
+                    //write the identiy in a persinten store, by default we use zend session
+                    $authStorage->write($identity);
         
-        $this->_redirect($params['referer']);
-    
+                $this->_redirect('http://kinderspielplatz.local/');
+        }
     }
 
 //logout erase all the session the strop in the pestintent storage
@@ -87,6 +97,3 @@ class Default_AuthenticationController extends Zend_Controller_Action
 
 
 }
-
-
-

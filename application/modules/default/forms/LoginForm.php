@@ -35,7 +35,8 @@ class Form_LoginForm extends Zend_Form {
         $this->setMethod('post');
         //pay attention hier the path Zend_Controller_Front::getInstance()->getBaseUrl() = the home path
         //submit "action" send to authentication/login
-       $this->setAction(Zend_Controller_Front::getInstance()->getBaseUrl().'/authentication/check-login');
+        $this->setAction(Zend_Controller_Front::getInstance()->getBaseUrl().'/authentication/checklogin');
+       
          //$this->setAction(Zend_Controller_Front::getInstance()->getBaseUrl());
     }
     

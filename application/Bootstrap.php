@@ -61,12 +61,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
             'basePath' => APPLICATION_PATH . '/modules/default'));
 
         //look if there is a Identity(role = users,admin,guest)
-        if (Zend_Auth::getInstance()->hasIdentity()) {
-            //if there is a role put it into the role(users oder admins) 
+      if(Zend_Auth::getInstance()->hasIdentity()){
             Zend_Registry::set('role', Zend_Auth::getInstance()->getStorage()->read()->role);
-        } else {
-            //if there isn't role set guests as the role 
+        }else {
+            //default value
             Zend_Registry::set('role', 'guests');
+            
         }
         //create a object based in Playground acl
         $this->_acl = new Model_PlaygroundAcl;
